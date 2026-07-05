@@ -12,12 +12,12 @@ Under the hood it runs [`entrypoint.sh`](./entrypoint.sh), which shells out to
 
 Accessed via `steps.<id>.outputs.<name>`.
 
-| Output     | Source                                    | Example                          | Notes                                                                                                       |
-| ---------- | ----------------------------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `version`  | `VERSION` env, else `tag`, then sanitized | `v1.3`, `feature-x`              | Also written to `version.txt` in the workspace.                                                             |
-| `tag`      | `git describe --tags --always`            | `v1.3-2-gabc1234`                | Nearest tag; falls back to short SHA if untagged, then `unknown`. Emitted but not declared in `action.yml`. |
-| `shortsha` | `git rev-parse --short HEAD`              | `abc1234`                        | Falls back to `unknown`.                                                                                    |
-| `shortlog` | `git shortlog <last-tag>..HEAD -e`        | multi-line author/commit summary | Commits since the most recent tag.                                                                          |
+| Output     | Source                                    | Example                          | Notes                                                                   |
+| ---------- | ----------------------------------------- | -------------------------------- | ----------------------------------------------------------------------- |
+| `version`  | `VERSION` env, else `tag`, then sanitized | `v1.3`, `feature-x`              | Also written to `version.txt` in the workspace.                         |
+| `tag`      | `git describe --tags --always`            | `v1.3-2-gabc1234`                | Nearest tag found; falls back to short SHA if untagged, then `unknown`. |
+| `shortsha` | `git rev-parse --short HEAD`              | `abc1234`                        | Falls back to `unknown`.                                                |
+| `shortlog` | `git shortlog <last-tag>..HEAD -e`        | multi-line author/commit summary | Commits since the most recent tag.                                      |
 
 ## Usage
 

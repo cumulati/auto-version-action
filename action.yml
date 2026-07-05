@@ -4,6 +4,8 @@ description: 'Automatically calculate version'
 outputs:
   version:
     description: generated version
+  tag:
+    description: nearest git tag (from `git describe --tags`), or short sha if untagged
   shortsha:
     description: short sha of the commit
   shortlog:

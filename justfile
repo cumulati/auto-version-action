@@ -4,6 +4,7 @@
 float-v1-release-tag tag:
 	#!/usr/bin/env bash
 	set -euxo pipefail
+	git tag -d v1
 	git fetch --tags
 	SHA=$(git rev-parse {{tag}})
 	echo "$SHA"
